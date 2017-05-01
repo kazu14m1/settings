@@ -1,7 +1,7 @@
 # export PATH="/usr/bin:/bin:/usr/local/bin"
 export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin"
-export PATH="/Users/kmihara/.nodebrew/current/bin:$PATH"
-export PATH="/Users/kmihara/.gem/ruby/2.0.0/bin:$PATH"
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.0.0/bin:$PATH"
 
 source ~/init.zsh
 
