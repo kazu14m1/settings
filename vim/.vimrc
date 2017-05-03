@@ -1,5 +1,4 @@
 " Coloescheme
-syntax on
 " colorscheme mycolor
 " colorscheme vividchalk
 
@@ -71,40 +70,63 @@ vnoremap k gk
 vnoremap gj j
 vnoremap gk k
 
-set nocompatible
-filetype off
-" Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if &compatible
+    set nocompatible               " Be iMproved
+endif
 
-" Vundleで管理するプラグインを書いていく
-Bundle 'gmarik/vundle'
+" Required:
+set runtimepath+=/Users/kazu14m/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" github
-Bundle 'Shougo/unite.vim'
-" Bundle 'Shougo/vimfiler.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'pangloss/vim-javascript'
-Bundle '2072/PHP-Indenting-for-VIm'
-Bundle 'vim-scripts/vim-tags'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'Shougo/vimshell.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'fatih/vim-go'
-Bundle 'editorconfig/editorconfig-vim'
-" Bundle 'scrooloose/syntastic'
+" Required:
+if dein#load_state('/Users/kazu14m/.vim/dein')
+    call dein#begin('/Users/kazu14m/.vim/dein')
 
-" vim.org
-Bundle 'sudo.vim'
-Bundle 'indenthtml.vim'
-" Bundle 'DoxygenToolkit.vim'
+    " Let dein manage dein
+    " Required:
+    call dein#add('/Users/kazu14m/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-filetype plugin on
-filetype indent on
+    " Add or remove your plugins here:
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('Shougo/unite.vim')
+    call dein#add('godlygeek/tabular')   " コード整形
+    call dein#add('plasticboy/vim-markdown', {'on_ft': 'markdown'})  " markdown
+    call dein#add('pangloss/vim-javascript', {'on_ft': 'javascript'})    " javascript
+    call dein#add('2072/PHP-Indenting-for-VIm', {'on_ft': 'php'}) " PHP
+    call dein#add('vim-scripts/vim-tags')
+    call dein#add('tpope/vim-surround')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('Shougo/neocomplcache.vim')
+    call dein#add('Shougo/vimshell.vim')
+    " call dein#add('Shougo/vimproc.vim')
+    call dein#add('mattn/emmet-vim', {'on_ft': 'html'})
+    call dein#add('fatih/vim-go', {'on_ft': 'go'})
+    call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('indenthtml.vim', {'on_ft': 'html'})
+    " " Bundle 'Shougo/vimfiler.vim'
+    " " Bundle 'scrooloose/syntastic'
+    " 
+    " " vim.org
+    " Bundle 'sudo.vim'
+    " " Bundle 'DoxygenToolkit.vim'
+
+    " You can specify revision/branch/tag.
+    " call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+    " Required:
+    call dein#end()
+    call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on
+" startup.
+if dein#check_install()
+    call dein#install()
+endif
 
 augroup FileTypeAu
     " FileType毎のautocmd

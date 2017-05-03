@@ -11,5 +11,6 @@ use zsh.
 
 ## vim
 
-### plugin
+### plugin manager
 
+[dein](https://github.com/Shougo/dein.vim)
