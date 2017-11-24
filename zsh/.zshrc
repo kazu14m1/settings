@@ -8,11 +8,11 @@ source ~/init.zsh
 # (1) プラグインを定義する
 zplug "yous/vanilli.sh"
 zplug 'zsh-users/zsh-autosuggestions'
-zplug 'yous/lime'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'zsh-users/zsh-history-substring-search'
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "zsh-users/zsh-completions"
+zplug "themes/blinks", from:oh-my-zsh, as:theme
 
 # (2) インストールする
 if ! zplug check --verbose; then
